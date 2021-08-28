@@ -1,14 +1,27 @@
-# Defines a default set of lint rules enforced for
-# projects at Google. For details and rationale,
-# see https://github.com/dart-lang/pedantic#enabled-lints.
-include: package:pedantic/analysis_options.yaml
+import 'dart:mirrors';
 
-# For lint rules and documentation, see http://dart-lang.github.io/linter/lints.
-# Uncomment to specify additional rules.
-# linter:
-#   rules:
-#     - camel_case_types
+import 'package:dart_primeira_aula/dart_primeira_aula.dart' as dart_primeira_aula;
+import 'dart:io';
 
-analyzer:
-#   exclude:
-#     - path/to/excluded/files/**
+void main(List<String> arguments) {
+  print('Informe o nota: ');
+  var entradaNota = stdin.readLineSync();
+  var nota = double.parse(entradaNota);
+
+  print ('Informe a sua % de presença: ');
+  var entradaPresenca = stdin.readLineSync();
+  var presenca = int.parse(entradaPresenca);
+
+  print ('Informe a sua nota da recuperação: ');
+  var entradaRecuperacao = stdin.readLineSync();
+  var recuperacao = int.parse(entradaRecuperacao);
+  
+  if ((nota >= 6  || recuperacao >= 6) && presenca >= 75){
+    print ('Parabens você passou!');
+  } else { 
+    var notaquefaltou = 6 - nota;
+    print('Você reprovou! faltou ${notaquefaltou} pontos');
+    
+    }
+
+}
